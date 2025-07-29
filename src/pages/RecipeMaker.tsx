@@ -27,13 +27,13 @@ const RecipeMaker = () => {
 Recipe for "${dishInput}":
 
 Ingredients:
-- 1 cup of ${dishInput.toLowerCase().includes("pasta") ? "pasta" : "main ingredient"}
+- 250g of ${dishInput.toLowerCase().includes("pasta") ? "pasta" : "main ingredient"}
 - 2 cloves garlic, minced
 - 1/2 onion, chopped
-- 1 can (14.5 oz) diced tomatoes
-- 1/4 cup fresh basil, chopped
+- 1 can (400g) diced tomatoes
+- 60g fresh basil, chopped
 - Salt and pepper to taste
-- 2 tbsp olive oil
+- 30ml olive oil
 
 Instructions:
 1. Heat olive oil in a large pan over medium heat. Add onion and garlic, sauté until fragrant (about 2-3 minutes).
