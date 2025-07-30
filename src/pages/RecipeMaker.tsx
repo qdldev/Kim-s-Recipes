@@ -23,7 +23,7 @@ const RecipeMaker = () => {
 
     try {
       console.log("Sending POST request with dishInput:", dishInput);
-      const response = await fetch("https://n8n.ikusasa.nz/webhook-test/4019b6af-bdeb-43b1-88b4-5cbeece03333", {
+      const response = await fetch("https://n8nweb.ikusasa.nz/webhook-test/4019b6af-bdeb-43b1-88b4-5cbeece03333", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
