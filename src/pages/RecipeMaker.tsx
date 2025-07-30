@@ -5,7 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { showLoading, dismissToast, showSuccess, showError } from "@/utils/toast";
 import { MadeWithDyad } from "@/components/made-with-dyad";
-import { Copy, Sparkles, ChefHat, Heart, Send } from "lucide-react";
+import { Copy, Sparkles, ChefHat, Heart, Send, RotateCcw } from "lucide-react";
 
 const RecipeMaker = () => {
   const [dishInput, setDishInput] = useState<string>("");
@@ -67,6 +67,12 @@ const RecipeMaker = () => {
         showError("Failed to copy recipe.");
       }
     }
+  };
+
+  const handleNewRecipe = () => {
+    setDishInput("");
+    setGeneratedRecipe("");
+    showSuccess("Ready for a new recipe!");
   };
 
   return (
@@ -135,14 +141,25 @@ const RecipeMaker = () => {
                 <ChefHat className="h-4 w-4 mr-2" /> meal planner
               </Button>
             </div>
-            <Button
-              onClick={handleGenerateRecipe}
-              className="py-2 px-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold rounded-md transition-colors duration-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100"
-              disabled={isLoading}
-            >
-              {isLoading ? "Sending..." : "Submit"}
-              <Send className="h-4 w-4 ml-2" />
-            </Button>
+            <div className="flex space-x-2">
+              {generatedRecipe && (
+                <Button
+                  onClick={handleNewRecipe}
+                  className="py-2 px-4 bg-gray-200 hover:bg-gray-300 text-gray-700 font-semibold rounded-md transition-colors duration-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100"
+                  disabled={isLoading}
+                >
+                  <RotateCcw className="h-4 w-4 mr-2" /> New Recipe
+                </Button>
+              )}
+              <Button
+                onClick={handleGenerateRecipe}
+                className="py-2 px-6 bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold rounded-md transition-colors duration-200 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-gray-100"
+                disabled={isLoading}
+              >
+                {isLoading ? "Sending..." : "Generate Recipe"}
+                <Send className="h-4 w-4 ml-2" />
+              </Button>
+            </div>
           </div>
 
           {generatedRecipe && (
