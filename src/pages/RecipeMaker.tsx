@@ -33,11 +33,11 @@ const RecipeMaker = () => {
 
       if (response.ok) {
         const data = await response.json();
-        if (data && data.recipe) {
-          setGeneratedRecipe(data.recipe);
+        if (data && data.output) { // Changed from data.recipe to data.output
+          setGeneratedRecipe(data.output); // Changed from data.recipe to data.output
           showSuccess("Recipe generated successfully!");
         } else {
-          console.error("Webhook response did not contain a 'recipe' field:", data);
+          console.error("Webhook response did not contain an 'output' field:", data); // Updated log message
           showError("Recipe generated, but response format was unexpected. Check console.");
           setGeneratedRecipe("Recipe generated, but could not parse. Check console for details.");
         }
