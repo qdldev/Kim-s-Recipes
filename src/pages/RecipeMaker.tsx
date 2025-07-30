@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { showLoading, dismissToast, showSuccess, showError } from "@/utils/toast";
-import { MadeWithDyad } from "@/components/made-with-dyad";
 import { Copy, Sparkles, ChefHat, Heart, Send, RotateCcw } from "lucide-react";
 
 const RecipeMaker = () => {
@@ -33,11 +32,11 @@ const RecipeMaker = () => {
 
       if (response.ok) {
         const data = await response.json();
-        if (data && data.output) { // Changed from data.recipe to data.output
-          setGeneratedRecipe(data.output); // Changed from data.recipe to data.output
+        if (data && data.output) {
+          setGeneratedRecipe(data.output);
           showSuccess("Recipe generated successfully!");
         } else {
-          console.error("Webhook response did not contain an 'output' field:", data); // Updated log message
+          console.error("Webhook response did not contain an 'output' field:", data);
           showError("Recipe generated, but response format was unexpected. Check console.");
           setGeneratedRecipe("Recipe generated, but could not parse. Check console for details.");
         }
@@ -185,7 +184,6 @@ const RecipeMaker = () => {
           )}
         </CardContent>
       </Card>
-      <MadeWithDyad />
     </div>
   );
 };
